@@ -6,6 +6,8 @@ use App\Repository\LieuRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Employe;
+use App\Repository\EmployeRepository;
 
 /**
  * @ORM\Entity(repositoryClass=LieuRepository::class)
@@ -30,7 +32,7 @@ class Lieu
     private $ville;
 
     /**
-     * @ORM\OneToMany(targetEntity=Employe::class, mappedBy="lieu")
+     * @ORM\OneToMany(targetEntity="Employe", mappedBy="lieu")
      */
     private $employes;
 

@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\EmployeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Lieu;
+use App\Repository\LieuRepository;
 
 /**
  * @ORM\Entity(repositoryClass=EmployeRepository::class)
@@ -28,7 +30,8 @@ class Employe
     private $salaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Lieu::class, inversedBy="employes")
+     * @ORM\ManyToOne(targetEntity="Lieu", inversedBy="employes")
+     * @ORM\JoinColumn(name = "idLieu", nullable=false)
      */
     private $lieu;
 
