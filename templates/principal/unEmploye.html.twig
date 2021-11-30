@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{ titre }}
+{% endblock %}
+{% block body %}
+    <h2> {{ titre}}</h2>
+    <h2> Nom : {{ employe.nom }}</h2>
+    <h2> Salaire : {{ employe.salaire }}</h2>
+{% endblock %}
