@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Employe;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Lieu;
+use App\Repository\LieuRepository;
 
 /**
  * @method Employe|null find($id, $lockMode = null, $lockVersion = null)
