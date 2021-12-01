@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Employe;
+use App\Entity\Lieu;
+use Doctrine\DBAL\Driver\PDO\Exception;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class PrincipalController extends AbstractController
 {
@@ -85,4 +88,48 @@ class PrincipalController extends AbstractController
         return $this->render('principal/unemployetout.html.twig', compact('titre', 'employe'));
     }
     
+    /**
+     * @Route("/lieu/{id}", name="unlieu", requirements={"id":"\d+"})
+     * @param ManagerRegistry $doctrine
+     */
+    public function afficheUnLieu(ManagerRegistry $doctrine, int $id) {
+        $lieu = $doctrine->getRepository(Lieu::class)->find($id);
+        $titre = "Lieu n° " . $id;
+        return $this->render('principal/unlieu.html.twig', compact('titre','lieu'));
+    }
+    
+    /**
+     * @Route("/employe/modif/salaire/{id}/{salaire}", name="employeModificationColonne", requirements={"id":"\d+"})
+     * @param ManagerRegistry $doctrine
+     * @param int $id
+     * @param int $salaire
+     */
+    public function modifierColonne(ManagerRegistry $doctrine, int $id, float $salaire) {
+        $em = $doctrine->getManager(); //entityManager
+        $employe = $em->getRepository(Employe::class)->find($id);
+        
+        if ($employe) {
+            $employe->setSalaire($salaire);
+        }
+        else {
+            throw new Exception;
+        }
+        $em->flush();
+        //$doctrine->persist($employe);
+        return $this->redirectToRoute("unEmploye", [
+            'id' => $id
+        ]);
+    }
+    
+    /**
+     * @Route("/employe/crea"n name="creaEmploye")
+     * @param Managerregistry $doctrine
+     */
+    public function creerEmploye(Managerregistry $doctrine){
+        $em = $doctrine->getManager();
+        $employe = new Employe();
+        $employe->setNom("Kerebel");
+        $employe->setSalaire(100000.00);
+        $employe->setLieu($lieu)
+    }
 }
