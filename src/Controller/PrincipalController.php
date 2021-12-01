@@ -130,6 +130,6 @@ class PrincipalController extends AbstractController
         $employe = new Employe();
         $employe->setNom("Kerebel");
         $employe->setSalaire(100000.00);
-        $employe->setLieu($lieu)
+        $employe->setLieu($lieu);
     }
 }
