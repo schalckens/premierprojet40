@@ -30,7 +30,7 @@ class Employe
     private $salaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Lieu", inversedBy="employes")
+     * @ORM\ManyToOne(targetEntity=Lieu::class, inversedBy="employes")
      * @ORM\JoinColumn(name = "idLieu", nullable=false)
      */
     private $lieu;

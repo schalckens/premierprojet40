@@ -31,13 +31,21 @@ class PrincipalController extends AbstractController
     
     /**
      * 
-     * @Route("/message/{departement}&{sexe}", name="message")
+     * @Route("/message/{departement}/{sexe}", name="message")
      */
-    public function message(string $departement, string $sexe) {
+    public function message(int $departement, string $sexe) {
         $date = date('l jS \of F Y h:i:s');
-        if($sexe != "garçon" and $sexe != "fille") {
-            $sexe = "sexe inconnu !";
+        
+        if ($sexe == 'F') {
+            $sexe = 'une fille';
+        } 
+        elseif ($sexe == 'M') {
+            $sexe = 'un garçon';
+        } else {
+            $sexe = ' de sexe inconnu';
         }
+        
+       
         return $this->render('principal/message.html.twig', array(
                         "departement" => $departement,
                         "sexe" => $sexe,
@@ -58,7 +66,7 @@ class PrincipalController extends AbstractController
     
     /**
      * 
-     * @Route("/employe/{id}", name="employes", requirements={"id":"\d+"})
+     * @Route("/employe/{id}", name="unEmploye", requirements={"id":"\d+"})
      * @param ManagerRegistry $doctrine
      */
     public function afficheUnEmploye(ManagerRegistry $doctrine, int $id) : Response {
@@ -73,7 +81,7 @@ class PrincipalController extends AbstractController
      */
     public function afficheUnEmployeTout(ManagerRegistry $doctrine, int $id) {
         $employe = $doctrine->getRepository(Employe::class)->find($id);
-        $titre = "Employé n° ".$id;
+        $titre = "Employé n° " . $id;
         return $this->render('principal/unemployetout.html.twig', compact('titre', 'employe'));
     }
     

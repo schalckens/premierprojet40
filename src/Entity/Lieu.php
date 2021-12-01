@@ -32,7 +32,7 @@ class Lieu
     private $ville;
 
     /**
-     * @ORM\OneToMany(targetEntity="Employe", mappedBy="lieu")
+     * @ORM\OneToMany(targetEntity=Employe::class, mappedBy="lieu")
      */
     private $employes;
 
