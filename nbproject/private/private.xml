@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/templates/principal/unlieu.html.twig</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/templates/principal/unEmploye.html.twig</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/src/Entity/Lieu.php</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/src/Repository/LieuRepository.php</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/templates/principal/message.html.twig</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/migrations/Version20211130104846.php</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/templates/principal/employes.html.twig</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/templates/principal/unemployetout.html.twig</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/migrations/Version20211130113843.php</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/templates/principal/index.html.twig</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/src/Repository/EmployeRepository.php</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/src/Entity/Employe.php</file>
-            <file>file:/C:/wamp64/www/symfony/premierprojet40/src/Controller/PrincipalController.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
