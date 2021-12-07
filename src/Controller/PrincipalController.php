@@ -122,10 +122,10 @@ class PrincipalController extends AbstractController
     }
     
     /**
-     * @Route("/employe/crea"n name="creaEmploye")
-     * @param Managerregistry $doctrine
+     * @Route("/employe/crea", name="creaEmploye")
+     * @param ManagerRegistry $doctrine
      */
-    public function creerEmploye(Managerregistry $doctrine){
+    public function creerEmploye(ManagerRegistry $doctrine){
         $em = $doctrine->getManager();
         $employe = new Employe();
         $employe->setNom("Kerebel");
