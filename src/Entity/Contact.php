@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ContactRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ContactRepository::class)
@@ -19,47 +20,51 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=1)
+     * @Assert\NotBlank
+     * @Assert\Choice({"M","F"})
      */
-    private $type;
+    private $titre;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
+     * @Assert\Email
      */
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=15)
+     * @Assert\Regex("/^[0][6-7](\s[0-9]{2}){4}/")
      */
     private $telephone;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
-    private $dateHeureContact;
+    private $datePremierContact;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getType(): ?string
+    public function getTitre(): ?string
     {
-        return $this->type;
+        return $this->titre;
     }
 
-    public function setType(string $type): self
+    public function setTitre(string $titre): self
     {
-        $this->type = $type;
+        $this->titre = $titre;
 
         return $this;
     }
@@ -112,14 +117,14 @@ class Contact
         return $this;
     }
 
-    public function getDateHeureContact(): ?\DateTimeInterface
+    public function getDatePremierContact(): ?\DateTimeInterface
     {
-        return $this->dateHeureContact;
+        return $this->datePremierContact;
     }
 
-    public function setDateHeureContact(\DateTimeInterface $dateHeureContact): self
+    public function setDatePremierContact(\DateTimeInterface $datePremierContact): self
     {
-        $this->dateHeureContact = $dateHeureContact;
+        $this->datePremierContact = $datePremierContact;
 
         return $this;
     }
