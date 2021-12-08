@@ -18,6 +18,7 @@ use App\Form\ContactType;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Service\GestionContact;
 
 
 class ContactController extends AbstractController
@@ -50,7 +51,7 @@ class ContactController extends AbstractController
      * @Route("/contact", name="contact")
      * @param Request $request
      */
-    public function demandeContact(Request $request, ManagerRegistry $doctrine) {
+    public function demandeContact(Request $request, GestionContact $gestionContact) {
         $contact = new Contact();
         $form = $this->createFormBuilder($contact)
                 ->add('titre', ChoiceType::class, array(
@@ -86,11 +87,14 @@ class ContactController extends AbstractController
         
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $contact = $form->getData();
-            $contact->setDatePremierContact(new \DateTime());
-            $em = $doctrine->getManager();
-            $em->persist($contact);
-            $em->flush();
+            /*
+             * $contact = $form->getData();
+             * $contact->setDatePremierContact(new \DateTime());
+             * $em = $doctrine->getManager();
+             * $em->persist($contact);
+             * $em->flush();
+             */
+            $gestionContact->creerContact($contact);
             return $this->redirectToRoute("principal");
         }
         
