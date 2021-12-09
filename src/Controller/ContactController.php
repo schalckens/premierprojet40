@@ -95,6 +95,7 @@ class ContactController extends AbstractController
              * $em->flush();
              */
             $gestionContact->creerContact($contact);
+            $gestionContact->envoiMailContact($contact);
             return $this->redirectToRoute("principal");
         }
         
