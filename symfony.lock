@@ -293,6 +293,9 @@
     "symfony/options-resolver": {
         "version": "v4.4.30"
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.23.1"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.23.0"
     },
@@ -320,6 +323,9 @@
     "symfony/property-access": {
         "version": "v4.4.30"
     },
+    "symfony/property-info": {
+        "version": "v5.4.0"
+    },
     "symfony/proxy-manager-bridge": {
         "version": "v4.4.34"
     },
@@ -342,6 +348,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.4.27"
+    },
+    "symfony/string": {
+        "version": "v5.4.0"
     },
     "symfony/translation-contracts": {
         "version": "v2.5.0"
